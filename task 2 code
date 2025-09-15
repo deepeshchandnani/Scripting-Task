@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check if filename is given
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 input.txt"
+    exit 1
+fi
+
+file=$1
+
+# Replace 'give' with 'learning' from 5th line onward only in lines containing 'welcome'
+sed -i '5,$ {/welcome/ s/give/learning/g}' "$file"
+
+# Print the updated file content
+cat "$file"
