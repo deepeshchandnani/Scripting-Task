@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# Website to check
 URL="https://guvi.in"
 
-# Get the HTTP status code (only the number, no extra output)
 HTTP_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" "$URL")
 
 echo "HTTP Status Code: $HTTP_CODE"
 
-# Check if status code indicates success or failure
 if [[ $HTTP_CODE -ge 200 && $HTTP_CODE -lt 300 ]]; then
     echo "✅ Success: The website is accessible."
 else
